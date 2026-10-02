@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ha">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SAGAD RICE SHOP - Sayar da Shinkafa</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}
+body{background:#fff8f0}
+header{background:#0d7c3e;color:white;padding:15px;text-align:center;position:sticky;top:0;z-index:99}
+header h1{font-size:22px}header p{font-size:12px;opacity:.9}
+.nav{display:flex;gap:8px;justify-content:center;padding:10px;background:white;box-shadow:0 2px 5px #0001}
+.nav button{padding:8px 15px;border:0;border-radius:20px;background:#eee;font-weight:700}
+.nav button.active{background:#0d7c3e;color:white}
+.products{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px}
+.card{background:white;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px #0001}
+.card img{width:100%;height:120px;object-fit:cover}
+.card-body{padding:10px}.card h3{font-size:13px}.price{color:#0d7c3e;font-weight:900;margin:5px 0}
+.btn{width:100%;padding:8px;background:#0d7c3e;color:white;border:0;border-radius:8px;font-weight:700}
+#cart,#checkout,#login{display:none;padding:15px}
+.item{background:white;padding:10px;border-radius:10px;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center}
+.pay-box{background:#0d7c3e;color:white;padding:15px;border-radius:12px;margin:10px 0;text-align:center}
+.copy-btn{background:white;color:#0d7c3e;border:0;padding:8px 15px;border-radius:20px;font-weight:700;margin-top:8px}
+input{width:100%;padding:12px;margin:6px 0;border:1px solid #ddd;border-radius:8px}
+.wa-btn{background:#25D366;color:white;padding:14px;width:100%;border:0;border-radius:10px;font-weight:900;font-size:16px;margin-top:10px}
+</style>
+</head>
+<body>
+<header>
+<h1>🍚 SAGAD RICE SHOP</h1>
+<p>Sayar da Shinkafa Mai Inganci - Katsina</p>
+<p style="font-size:11px">Biyan Kudi: 8143928275 - Dauda Bashir - Opay</p>
+</header>
+<div class="nav">
+<button class="active" onclick="show('home')">Shago</button>
+<button onclick="show('cart')">Kwando (<span id="c">0</span>)</button>
+<button onclick="show('login')">Shiga</button>
+</div>
+
+<div id="home">
+<div class="products" id="plist"></div>
+</div>
+
+<div id="cart">
+<h2>Kwandonka</h2>
+<div id="clist"></div>
+<div class="pay-box">
+<b>BIYAN KUDI:</b><br>
+Opay: <b>8143928275</b><br>
+Suna: <b>Dauda Bashir</b><br>
+<button class="copy-btn" onclick="navigator.clipboard.writeText('8143928275');alert('An kwafa! 8143928275')">📋 Kwafa Lambar</button>
+</div>
+<button class="wa-btn" onclick="show('checkout')">Ci gaba da Biya</button>
+</div>
+
+<div id="checkout">
+<h2>Bayanin Mai Saya</h2>
+<input id="n" placeholder="Cikakken Sunan ka">
+<input id="p" placeholder="Lambar Waya - 07039596500">
+<input id="a" placeholder="Adireshin ka - Katsina">
+<button class="wa-btn" onclick="order()">Aika Order a WhatsApp - 07039596500</button>
+</div>
+
+<div id="login">
+<h2>Shiga / Rijista</h2>
+<input placeholder="Sunan ka">
+<input placeholder="Lambar Waya">
+<input type="password" placeholder="Password">
+<button class="wa-btn" onclick="alert('An shiga!');show('home')">Shiga Yanzu</button>
+</div>
+
+<script>
+const prods=[
+{n:"Farar Shinkafa 50kg",pr:78000,im:"https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400"},
+{n:"Golden Sella 50kg",pr:85000,im:"https://images.unsplash.com/photo-1536304929831-ee1ca9d44906?w=400"},
+{n:"Basmati Shinkafa 25kg",pr:95000,im:"https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400"},
+{n:"Shinkafar Gida 50kg",pr:72000,im:"https://images.unsplash.com/photo-1596797038530-2c107229654
